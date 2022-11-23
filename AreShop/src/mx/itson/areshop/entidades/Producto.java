@@ -17,12 +17,19 @@ import java.sql.PreparedStatement;
  * @author Michelle
  */
 public class Producto {
+
+    
+    /**
+     *  Donde se definen  los datos de producto
+     */
     
     private int id;
     private String nombre;
     private String marca;
     private String descripcion;
     private int cantidad;
+    private int precio;
+    private int total;
 
     public static List<Producto>  obtenerTodos(){
      List<Producto> producto = new ArrayList<>();
@@ -49,6 +56,10 @@ public class Producto {
        return producto;
     }
     
+    /**
+     * 
+     * @return Los datos que le damos a la tabla
+     */
     public static boolean guardar(Producto p) {
        boolean resultado = false;
 
@@ -70,7 +81,7 @@ public class Producto {
         return resultado;
     }
        /**
-        * 
+        * Obtiene los objetos de Producto
         * @return 
         */
 
@@ -112,6 +123,33 @@ public class Producto {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+    /**
+     * @return the precio
+     */
+    public int getPrecio() {
+        return precio;
+    }
+
+    /**
+     * @param precio the precio to set
+     */
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
+    /**
+     * @return the total
+     */
+    public int getTotal() {
+        return total;
+    }
+
+    /**
+     * @param total the total to set
+     */
+    public void setTotal(int total) {
+        this.total = total;
     }
 
   
