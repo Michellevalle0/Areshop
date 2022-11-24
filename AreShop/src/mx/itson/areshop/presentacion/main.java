@@ -12,7 +12,10 @@ package mx.itson.areshop.presentacion;
  * @author Michelle
  */
 public class main {
-   
+    /**
+     * Es donde se inicia y finaliza el control del programa
+     * @param args 
+     */
     
     public  static void main(String[] args){
     }

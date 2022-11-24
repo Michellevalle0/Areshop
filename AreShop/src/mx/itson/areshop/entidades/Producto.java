@@ -11,14 +11,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import mx.itson.areshop.persistencia.Conexion;
-import java.sql.PreparedStatement;
+
 /**
  *
  * @author Michelle
  */
 public class Producto {
 
-    
+ 
     /**
      *  Donde se definen  los datos de producto
      */
@@ -28,7 +28,7 @@ public class Producto {
     private String marca;
     private String descripcion;
     private int cantidad;
-    private int precio;
+    private String precio;
     private int total;
 
     public static List<Producto>  obtenerTodos(){
@@ -45,6 +45,8 @@ public class Producto {
              p.setMarca(resultSet.getString(3));
              p.setDescripcion(resultSet.getString(4));
              p.setCantidad(resultSet.getInt(5));
+             p.setPrecio(resultSet.getNString(6));
+             p.setTotal(resultSet.getInt(7));
              
              producto.add(p);
          }
@@ -54,31 +56,6 @@ public class Producto {
        }
        
        return producto;
-    }
-    
-    /**
-     * 
-     * @return Los datos que le damos a la tabla
-     */
-    public static boolean guardar(Producto p) {
-       boolean resultado = false;
-
-       try {
-            
-            Connection con = Conexion.obtener();
-            String consulta = "INSERT INTO productos (nombre,marca,descripcion,cantidad) VALUES (?,?,?,?) ";
-            PreparedStatement st = con.prepareStatement(consulta);
-            st.setString(1, p.getNombre());
-            st.setString(2, p.getMarca());
-            st.setString(3, p.getDescripcion());
-            st.setInt(4,p.getCantidad() );
-            resultado = st.execute();
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        return resultado;
     }
        /**
         * Obtiene los objetos de Producto
@@ -124,20 +101,21 @@ public class Producto {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
-    /**
+     /**
      * @return the precio
      */
-    public int getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
     /**
      * @param precio the precio to set
      */
-    public void setPrecio(int precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
-
+    
+   
     /**
      * @return the total
      */

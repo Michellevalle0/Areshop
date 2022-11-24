@@ -13,6 +13,10 @@ import java.sql.SQLException;
  *
  */
 public class Conexion {
+    /**
+     * Obtiene una conexión hacia la base de datos utilizando los parámetros proporcionados.
+     * @return La conexión inicializada hacia la base de datos.
+     */
 
     public static Connection obtener() {
         Connection con = null;
