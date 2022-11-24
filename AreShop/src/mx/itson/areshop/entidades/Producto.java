@@ -31,6 +31,11 @@ public class Producto {
     private String precio;
     private int total;
 
+    /*
+    El metodo obtener todos nos sirve para declarar el encabezado de un método, 
+    basta con escribir el tipo que retorna, seguido del nombre del método 
+    y entre paréntesis la lista de parámetros.
+    */
     public static List<Producto>  obtenerTodos(){
      List<Producto> producto = new ArrayList<>();
      try{
@@ -58,7 +63,9 @@ public class Producto {
        return producto;
     }
        /**
-        * Obtiene los objetos de Producto
+        * get:Nos permite acceder a los valores de los atributos.
+        * set:Su función permite brindar acceso a propiedades especificas 
+        * para poder asignar un valor fuera de la clase.
         * @return 
         */
 
